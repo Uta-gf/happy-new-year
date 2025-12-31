@@ -199,13 +199,20 @@ const target=new Date("January 1, 2026 00:00:00").getTime();
 function login(){
   if(password.value===PASSWORD){
     passwordScreen.style.display="none";
-    countdownScreen.style.display="flex";
     bgm.play();
-    startTyping();
+
+    if(PREVIEW_MODE){
+      content.style.display="flex";
+      startTyping();
+    }else{
+      countdownScreen.style.display="flex";
+      startCountdown();
+    }
   }else{
     alert("Password salah 💔");
   }
 }
+
 
 function startCountdown(){
   const timer=setInterval(()=>{
@@ -272,6 +279,7 @@ for(let i=0;i<40;i++){
 
 </body>
 </html>
+
 
 
 
