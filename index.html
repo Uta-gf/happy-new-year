@@ -6,128 +6,119 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
+/* RESET */
 *{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Segoe UI',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Segoe UI',sans-serif;
 }
 
-/* ================= BACKGROUND ================= */
-body{
-  background:linear-gradient(180deg,#020024,#021b3a,#001533);
-  color:#ffffff;
-  overflow:hidden;
+/* BACKGROUND GLOBAL */
+html, body{
+    width:100%;
+    height:100%;
+    background:linear-gradient(180deg,#020024,#021b3a,#001533);
+    color:#fff;
+    overflow:hidden;
 }
 
-/* ================= SCREEN ================= */
+/* SCREEN */
 .screen{
-  position:fixed;
-  inset:0;
-  display:flex;
-  align-items:center;
-  justify-content:center;
+    position:fixed;
+    inset:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    background:linear-gradient(180deg,#020024,#021b3a,#001533);
 }
 
-/* ================= BOX ================= */
+/* BOX */
 .box{
-  background:rgba(255,255,255,0.12);
-  padding:60px 70px;
-  border-radius:40px;
-  backdrop-filter:blur(16px);
-  box-shadow:0 0 60px rgba(120,190,255,.35);
-  max-width:1000px;
-  text-align:center;
+    background:rgba(255,255,255,0.14);
+    padding:55px;
+    border-radius:35px;
+    backdrop-filter:blur(16px);
+    box-shadow:0 0 45px rgba(120,190,255,.35);
+    max-width:900px;
+    text-align:center;
 }
 
-/* ================= INPUT & BUTTON ================= */
+/* INPUT & BUTTON */
 input{
-  width:320px;
-  padding:14px;
-  border:none;
-  border-radius:25px;
-  text-align:center;
-  margin:25px auto;
-  display:block;
-  font-size:16px;
+    padding:15px;
+    width:100%;
+    border:none;
+    border-radius:25px;
+    text-align:center;
+    margin:25px 0;
+    font-size:16px;
 }
 
 button{
-  padding:14px 40px;
-  border:none;
-  border-radius:30px;
-  background:linear-gradient(45deg,#4facfe,#00c6ff);
-  color:#fff;
-  font-size:16px;
-  cursor:pointer;
+    padding:14px 36px;
+    border:none;
+    border-radius:25px;
+    background:linear-gradient(45deg,#4facfe,#00c6ff);
+    color:#fff;
+    cursor:pointer;
+    font-size:16px;
+    transition:.3s;
+}
+button:hover{
+    transform:scale(1.05);
 }
 
-/* ================= COUNTDOWN ================= */
-.countdown{
-  display:flex;
-  gap:30px;
-  justify-content:center;
-  margin-top:40px;
+/* JUDUL */
+h1{
+    margin-bottom:25px;
+    text-shadow:0 0 22px rgba(180,220,255,.6);
 }
 
-.time{
-  background:rgba(255,255,255,.18);
-  padding:25px 30px;
-  border-radius:30px;
-  min-width:120px;
-  font-size:22px;
-  box-shadow:0 0 30px rgba(150,210,255,.3);
-}
-
-/* ================= CAT ================= */
+/* KUCING */
 .cat{
-  width:260px;
-  margin:40px auto;
-  border-radius:35px;
-  box-shadow:0 0 40px rgba(140,200,255,.45);
-  animation:float 3s infinite alternate;
+    width:240px;
+    margin:30px auto;
+    border-radius:30px;
+    box-shadow:0 0 35px rgba(140,200,255,.4);
+    animation:float 3s infinite alternate;
 }
 
 @keyframes float{
-  from{transform:translateY(0)}
-  to{transform:translateY(-25px)}
+    from{transform:translateY(0);}
+    to{transform:translateY(-20px);}
 }
 
-/* ================= TEXT ================= */
-h1{
-  margin-bottom:25px;
-  font-size:34px;
-  text-shadow:0 0 25px rgba(180,220,255,.6);
-}
-
+/* TYPING */
 .typing{
-  font-size:19px;
-  line-height:1.9;
-  white-space:pre-line;
+    font-size:18px;
+    line-height:1.9;
+    white-space:pre-line;
+    margin-top:20px;
 }
 
-/* ================= FIREWORK ================= */
+/* FIREWORK */
 .firework{
-  position:absolute;
-  width:6px;
-  height:6px;
-  border-radius:50%;
-  animation:explode 3s infinite;
+    position:absolute;
+    width:6px;
+    height:6px;
+    border-radius:50%;
+    animation:explode 3s infinite;
 }
 
 @keyframes explode{
-  100%{
-    box-shadow:
-      0 -90px #b3d9ff,
-      65px -65px #cce6ff,
-      90px 0 #80cfff,
-      65px 65px #99ddff,
-      0 90px #e6f2ff,
-      -65px 65px #b3e5ff,
-      -90px 0 #66ccff,
-      -65px -65px #d6efff;
-    opacity:0;
-  }
+    100%{
+        box-shadow:
+        0 -70px #b3d9ff,
+        50px -50px #cce6ff,
+        70px 0 #80cfff,
+        50px 50px #99ddff,
+        0 70px #e6f2ff,
+        -50px 50px #b3e5ff,
+        -70px 0 #66ccff,
+        -50px -50px #d6efff;
+        opacity:0;
+    }
 }
 </style>
 </head>
@@ -143,114 +134,74 @@ h1{
 <div id="password-screen" class="screen">
   <div class="box">
     <h1>💙 Happy New Year 2026 💙</h1>
-    <input type="password" id="password" placeholder="Password">
+    <input type="password" id="password" placeholder="Password...">
     <button onclick="checkPassword()">Masuk</button>
   </div>
 </div>
 
-<!-- ⏳ COUNTDOWN -->
-<div id="countdown-screen" class="screen" style="display:none">
-  <div class="box">
-    <h1>Menuju Tahun Baru ✨</h1>
-    <div class="countdown">
-      <div class="time"><span id="d">0</span><br>Hari</div>
-      <div class="time"><span id="h">0</span><br>Jam</div>
-      <div class="time"><span id="m">0</span><br>Menit</div>
-      <div class="time"><span id="s">0</span><br>Detik</div>
-    </div>
-  </div>
-</div>
-
 <!-- 💌 CONTENT -->
-<div id="content" class="screen" style="display:none">
+<div id="content" class="screen" style="display:none;">
   <div class="box">
     <h1>Happy New Year 2026 💙</h1>
 
+    <!-- GIF KUCING AMAN -->
     <img class="cat"
-      src="https://media.giphy.com/media/v6aOjy0Qo1fIA/giphy.gif"
-      alt="Cat New Year">
+    src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
+    alt="Cat New Year">
 
     <div id="typing" class="typing"></div>
-
-    <div style="margin-top:40px;opacity:.9">
-      Terima kasih sudah bertahan sejauh ini.<br>
-      Aku bangga sama kamu.<br><br>
-      Semoga 2026 lebih lembut ke hatimu,<br>
-      dan semoga suatu hari<br>
-      aku bisa bilang semua ini<br>
-      tanpa jarak di antara kita 💙
-    </div>
   </div>
 </div>
 
 <script>
-/* PASSWORD */
-function checkPassword(){
-  if(password.value==="010126"){
-    passwordScreen.style.display="none";
-    countdownScreen.style.display="flex";
-    bgm.volume=0.35;
-    bgm.play();
-  }else{
-    alert("Password salah 💔");
-  }
-}
-
 /* ELEMENT */
 const passwordScreen=document.getElementById("password-screen");
-const countdownScreen=document.getElementById("countdown-screen");
 const content=document.getElementById("content");
+const bgm=document.getElementById("bgm");
 
-/* COUNTDOWN */
-const target=new Date("January 1, 2026 00:00:00").getTime();
-const timer=setInterval(()=>{
-  const now=new Date().getTime();
-  const diff=target-now;
+/* PASSWORD */
+function checkPassword(){
+    if(password.value==="010126"){
+        passwordScreen.style.display="none";
+        content.style.display="flex";
+        bgm.play();
+        startTyping();
+    }else{
+        alert("Password salah 💔");
+    }
+}
 
-  d.textContent=Math.max(0,Math.floor(diff/(1000*60*60*24)));
-  h.textContent=Math.max(0,Math.floor((diff%(1000*60*60*24))/(1000*60*60)));
-  m.textContent=Math.max(0,Math.floor((diff%(1000*60*60))/(1000*60)));
-  s.textContent=Math.max(0,Math.floor((diff%(1000*60))/1000));
-
-  if(diff<=0){
-    clearInterval(timer);
-    countdownScreen.style.display="none";
-    content.style.display="flex";
-    startTyping();
-  }
-},1000);
-
-/* TYPING */
+/* TYPING TEXT */
 const text=`Happy new year safitrii 💫
-Semoga di tahun baru ini,
-langkah kamu selalu dipenuhi hal-hal baik.
+Semoga 2026 jadi tahun yang lebih lembut buat kamu.
 
-Tahun kemarin mungkin berat,
-tapi itu bukti kalau kamu kuat dan luar biasa.
+Kalau tahun kemarin terasa berat,
+anggap saja itu cara hidup
+membuktikan kalau kamu kuat.
 
-Maaf aku cuma bisa ucapin lewat sini,
+Maaf aku cuma bisa bilang lewat layar,
 kalau jarak nggak sejauh ini,
-aku pasti datang dan bilang langsung.
+aku pasti datang dan ngomong langsung.
 
-Tetap jadi kamu yang hebat,
-aku selalu doain kamu dari sini 💙✨`;
+Jaga diri kamu baik-baik,
+aku selalu doain kamu dari sini 💙`;
 
 let i=0;
 function startTyping(){
-  if(i<text.length){
-    typing.innerHTML+=text.charAt(i);
-    i++;
-    setTimeout(startTyping,45);
-  }
+    if(i<text.length){
+        typing.innerHTML+=text.charAt(i);
+        i++;
+        setTimeout(startTyping,45);
+    }
 }
 
 /* FIREWORK */
 for(let i=0;i<20;i++){
-  const f=document.createElement("div");
-  f.className="firework";
-  f.style.top=Math.random()*100+"%";
-  f.style.left=Math.random()*100+"%";
-  document.body.appendChild(f);
+    const f=document.createElement("div");
+    f.className="firework";
+    f.style.top=Math.random()*100+"%";
+    f.style.left=Math.random()*100+"%";
+    document.body.appendChild(f);
 }
 </script>
 
