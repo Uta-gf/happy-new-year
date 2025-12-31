@@ -6,202 +6,267 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-/* RESET */
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Segoe UI',sans-serif;
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Segoe UI',sans-serif;
 }
 
-/* BACKGROUND GLOBAL */
-html, body{
-    width:100%;
-    height:100%;
-    background:linear-gradient(180deg,#020024,#021b3a,#001533);
-    color:#fff;
-    overflow:hidden;
+html,body{
+  width:100%;
+  height:100%;
+  background:linear-gradient(180deg,#020024,#021b3a,#001533);
+  color:#fff;
+  overflow:hidden;
 }
 
 /* SCREEN */
 .screen{
-    position:fixed;
-    inset:0;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    background:linear-gradient(180deg,#020024,#021b3a,#001533);
+  position:fixed;
+  inset:0;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  background:linear-gradient(180deg,#020024,#021b3a,#001533);
 }
 
 /* BOX */
 .box{
-    background:rgba(255,255,255,0.14);
-    padding:55px;
-    border-radius:35px;
-    backdrop-filter:blur(16px);
-    box-shadow:0 0 45px rgba(120,190,255,.35);
-    max-width:900px;
-    text-align:center;
+  background:rgba(255,255,255,.15);
+  padding:55px;
+  border-radius:35px;
+  backdrop-filter:blur(16px);
+  box-shadow:0 0 50px rgba(120,190,255,.45);
+  text-align:center;
+  max-width:900px;
 }
 
-/* INPUT & BUTTON */
+/* INPUT */
 input{
-    padding:15px;
-    width:100%;
-    border:none;
-    border-radius:25px;
-    text-align:center;
-    margin:25px 0;
-    font-size:16px;
+  padding:15px;
+  width:100%;
+  border:none;
+  border-radius:25px;
+  margin:25px 0;
+  font-size:16px;
+  text-align:center;
 }
 
+/* BUTTON */
 button{
-    padding:14px 36px;
-    border:none;
-    border-radius:25px;
-    background:linear-gradient(45deg,#4facfe,#00c6ff);
-    color:#fff;
-    cursor:pointer;
-    font-size:16px;
-    transition:.3s;
+  padding:14px 36px;
+  border:none;
+  border-radius:30px;
+  background:linear-gradient(45deg,#4facfe,#00c6ff);
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  transition:.3s;
 }
-button:hover{
-    transform:scale(1.05);
-}
+button:hover{transform:scale(1.05);}
 
-/* JUDUL */
+/* TITLE */
 h1{
-    margin-bottom:25px;
-    text-shadow:0 0 22px rgba(180,220,255,.6);
+  margin-bottom:25px;
+  text-shadow:0 0 25px rgba(180,220,255,.7);
 }
 
-/* KUCING */
+/* COUNTDOWN */
+.countdown{
+  display:flex;
+  gap:25px;
+  justify-content:center;
+  margin-top:30px;
+}
+.time{
+  background:rgba(255,255,255,.2);
+  padding:25px;
+  border-radius:25px;
+  min-width:100px;
+  box-shadow:0 0 30px rgba(160,220,255,.5);
+}
+.time span{
+  font-size:30px;
+  font-weight:bold;
+}
+
+/* CAT */
 .cat{
-    width:240px;
-    margin:30px auto;
-    border-radius:30px;
-    box-shadow:0 0 35px rgba(140,200,255,.4);
-    animation:float 3s infinite alternate;
+  width:240px;
+  margin:30px auto;
+  border-radius:30px;
+  box-shadow:0 0 40px rgba(140,200,255,.6);
+  animation:float 3s infinite alternate;
 }
-
 @keyframes float{
-    from{transform:translateY(0);}
-    to{transform:translateY(-20px);}
+  from{transform:translateY(0);}
+  to{transform:translateY(-20px);}
 }
 
 /* TYPING */
 .typing{
-    font-size:18px;
-    line-height:1.9;
-    white-space:pre-line;
-    margin-top:20px;
+  font-size:18px;
+  line-height:1.9;
+  white-space:pre-line;
 }
 
 /* FIREWORK */
 .firework{
-    position:absolute;
-    width:6px;
-    height:6px;
-    border-radius:50%;
-    animation:explode 3s infinite;
+  position:absolute;
+  width:6px;
+  height:6px;
+  border-radius:50%;
+  animation:explode 3s infinite;
+}
+@keyframes explode{
+  100%{
+    box-shadow:
+      0 -80px #b3d9ff,
+      60px -60px #cce6ff,
+      80px 0 #80cfff,
+      60px 60px #99ddff,
+      0 80px #e6f2ff,
+      -60px 60px #b3e5ff,
+      -80px 0 #66ccff,
+      -60px -60px #d6efff;
+    opacity:0;
+  }
 }
 
-@keyframes explode{
-    100%{
-        box-shadow:
-        0 -70px #b3d9ff,
-        50px -50px #cce6ff,
-        70px 0 #80cfff,
-        50px 50px #99ddff,
-        0 70px #e6f2ff,
-        -50px 50px #b3e5ff,
-        -70px 0 #66ccff,
-        -50px -50px #d6efff;
-        opacity:0;
-    }
+/* CONFETTI */
+.confetti{
+  position:absolute;
+  width:8px;
+  height:14px;
+  background:#6ec6ff;
+  top:-20px;
+  animation:fall linear infinite;
+}
+@keyframes fall{
+  to{
+    transform:translateY(110vh) rotate(360deg);
+  }
 }
 </style>
 </head>
 
 <body>
 
-<!-- 🎶 MUSIC -->
+<!-- MUSIC -->
 <audio id="bgm" loop>
   <source src="newyear.mp3" type="audio/mpeg">
 </audio>
 
-<!-- 🔐 PASSWORD -->
-<div id="password-screen" class="screen">
+<!-- PASSWORD -->
+<div id="passwordScreen" class="screen">
   <div class="box">
     <h1>💙 Happy New Year 2026 💙</h1>
     <input type="password" id="password" placeholder="Password...">
-    <button onclick="checkPassword()">Masuk</button>
+    <button onclick="login()">Masuk</button>
   </div>
 </div>
 
-<!-- 💌 CONTENT -->
+<!-- COUNTDOWN -->
+<div id="countdownScreen" class="screen" style="display:none;">
+  <div class="box">
+    <h1>Menuju Tahun Baru ✨</h1>
+    <div class="countdown">
+      <div class="time"><span id="d">0</span><br>Hari</div>
+      <div class="time"><span id="h">0</span><br>Jam</div>
+      <div class="time"><span id="m">0</span><br>Menit</div>
+      <div class="time"><span id="s">0</span><br>Detik</div>
+    </div>
+  </div>
+</div>
+
+<!-- CONTENT -->
 <div id="content" class="screen" style="display:none;">
   <div class="box">
     <h1>Happy New Year 2026 💙</h1>
 
-    <!-- GIF KUCING AMAN -->
     <img class="cat"
-    src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif"
-    alt="Cat New Year">
+    src="https://media.giphy.com/media/JIX9t2j0ZTN9S/giphy.gif">
 
     <div id="typing" class="typing"></div>
   </div>
 </div>
 
 <script>
-/* ELEMENT */
-const passwordScreen=document.getElementById("password-screen");
-const content=document.getElementById("content");
-const bgm=document.getElementById("bgm");
+const PASSWORD="010126";
+const target=new Date("January 1, 2026 00:00:00").getTime();
 
-/* PASSWORD */
-function checkPassword(){
-    if(password.value==="010126"){
-        passwordScreen.style.display="none";
-        content.style.display="flex";
-        bgm.play();
-        startTyping();
-    }else{
-        alert("Password salah 💔");
-    }
+function login(){
+  if(password.value===PASSWORD){
+    passwordScreen.style.display="none";
+    countdownScreen.style.display="flex";
+    bgm.play();
+    startCountdown();
+  }else{
+    alert("Password salah 💔");
+  }
 }
 
-/* TYPING TEXT */
+function startCountdown(){
+  const timer=setInterval(()=>{
+    const now=new Date().getTime();
+    const diff=target-now;
+
+    d.innerText=Math.floor(diff/(1000*60*60*24));
+    h.innerText=Math.floor(diff%(1000*60*60*24)/(1000*60*60));
+    m.innerText=Math.floor(diff%(1000*60*60)/(1000*60));
+    s.innerText=Math.floor(diff%(1000*60)/1000);
+
+    if(diff<=0){
+      clearInterval(timer);
+      countdownScreen.style.display="none";
+      content.style.display="flex";
+      startTyping();
+    }
+  },1000);
+}
+
+/* TYPING */
 const text=`Happy new year safitrii 💫
-Semoga 2026 jadi tahun yang lebih lembut buat kamu.
+Semoga 2026 jadi tahun
+yang lebih lembut ke hatimu.
 
-Kalau tahun kemarin terasa berat,
-anggap saja itu cara hidup
-membuktikan kalau kamu kuat.
+Kalau kemarin berat,
+itu karena kamu kuat.
 
-Maaf aku cuma bisa bilang lewat layar,
+Maaf aku cuma bisa bilang lewat sini,
 kalau jarak nggak sejauh ini,
-aku pasti datang dan ngomong langsung.
+aku pasti datang dan bilang langsung.
 
 Jaga diri kamu baik-baik,
 aku selalu doain kamu dari sini 💙`;
 
 let i=0;
 function startTyping(){
-    if(i<text.length){
-        typing.innerHTML+=text.charAt(i);
-        i++;
-        setTimeout(startTyping,45);
-    }
+  if(i<text.length){
+    typing.innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(startTyping,45);
+  }
 }
 
 /* FIREWORK */
-for(let i=0;i<20;i++){
-    const f=document.createElement("div");
-    f.className="firework";
-    f.style.top=Math.random()*100+"%";
-    f.style.left=Math.random()*100+"%";
-    document.body.appendChild(f);
+for(let i=0;i<25;i++){
+  const f=document.createElement("div");
+  f.className="firework";
+  f.style.top=Math.random()*100+"%";
+  f.style.left=Math.random()*100+"%";
+  document.body.appendChild(f);
+}
+
+/* CONFETTI */
+for(let i=0;i<40;i++){
+  const c=document.createElement("div");
+  c.className="confetti";
+  c.style.left=Math.random()*100+"%";
+  c.style.animationDuration=(Math.random()*3+3)+"s";
+  c.style.background=["#6ec6ff","#b3e5ff","#99ddff"][Math.floor(Math.random()*3)];
+  document.body.appendChild(c);
 }
 </script>
 
